@@ -105,13 +105,23 @@
             "hotspot_top_botttom": 30,
             "hotspot_left_right": 0
           }
+        },
+        "product_8RrEQq": {
+          "type": "product",
+          "settings": {
+            "iamge": "shopify://shop_images/casual-fashion-woman_925x_56b56608-f207-45c1-b677-bb5aa26c1c7a.jpg",
+            "custom_product_select": "classic-varsity-top",
+            "hotspot_top_botttom": 0,
+            "hotspot_left_right": 0
+          }
         }
       },
       "block_order": [
         "product_ncEGt3",
         "product_6DA6Hr",
         "product_KkYLNg",
-        "product_pNXG8i"
+        "product_pNXG8i",
+        "product_8RrEQq"
       ],
       "settings": {
         "heading": "Tisso vison in the wild"

@@ -114,6 +114,15 @@
             "hotspot_top_botttom": 0,
             "hotspot_left_right": 0
           }
+        },
+        "product_LDk3R8": {
+          "type": "product",
+          "settings": {
+            "iamge": "shopify://shop_images/young-female-models-denim_925x_44c2cf9e-4030-4347-9d4a-f0e4a1479b4a.jpg",
+            "custom_product_select": "dark-denim-top",
+            "hotspot_top_botttom": 32,
+            "hotspot_left_right": 62
+          }
         }
       },
       "block_order": [
@@ -121,7 +130,8 @@
         "product_6DA6Hr",
         "product_KkYLNg",
         "product_pNXG8i",
-        "product_8RrEQq"
+        "product_8RrEQq",
+        "product_LDk3R8"
       ],
       "settings": {
         "heading": "Tisso vison in the wild"

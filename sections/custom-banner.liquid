@@ -1,0 +1,373 @@
+{% style %}
+.custom-banner-sect .banner-cont-des[data-align="left"]{
+    margin-left: 0; margin-right: auto; text-align: left;
+}
+.custom-banner-sect .banner-cont-des[data-align="center"]{
+    margin-left: auto; margin-right: auto; text-align: center;
+}
+.custom-banner-sect .banner-cont-des[data-align="right"]{
+    margin-left: auto; margin-right: 0; text-align: right;
+}
+.custom-banner-sect .banner-cont-des[data-align="left"] .custom-add-to-cart.banner-design-cta{
+    margin-left: 0; margin-right: auto;
+}
+.custom-banner-sect .banner-cont-des[data-align="center"] .custom-add-to-cart.banner-design-cta{
+    margin-left: auto;
+    margin-right: auto;
+}
+.custom-banner-sect .banner-cont-des[data-align="right"] .custom-add-to-cart.banner-design-cta{
+    margin-left: auto; 
+}
+.bg-banner--div[data-pos*="top"]{
+    align-items: flex-start;
+}
+.bg-banner--div[data-pos*="middle"]{
+    align-items: center;
+}
+.bg-banner--div[data-pos*="bottom"]{
+    align-items: flex-end;
+}
+.bg-banner--div[data-pos$="left"]{
+    justify-items: start;
+}
+.bg-banner--div[data-pos$="center"]{
+    justify-items: center;
+}
+.bg-banner--div[data-pos$="right"]{
+    justify-items: end;
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .banner-cont-des[data-align="left"]{
+        text-align: left;
+    }
+    .banner-cont-des[data-align="center"]{
+        text-align: center;
+    }
+    .banner-cont-des[data-align="right"]{
+        text-align: right;
+    }
+    .mobile-view-bannerimage[data-pos*="top"]{
+        align-items: flex-start;
+    }
+    .mobile-view-bannerimage[data-pos*="middle"]{
+        align-items: center;
+    }
+    .mobile-view-bannerimage[data-pos*="bottom"]{
+        align-items: flex-end;
+    }
+    .mobile-view-bannerimage[data-pos$="left"]{
+        justify-items: start;
+    }
+    .mobile-view-bannerimage[data-pos$="center"]{
+        justify-items: center;
+    } 
+    .mobile-view-bannerimage[data-pos$="right"]{
+        justify-items: end;
+    }
+ }
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+    .banner-cont-des[data-align="left"]{
+        text-align: left;
+    }
+    .banner-cont-des[data-align="center"]{
+        text-align: center;
+    }
+    .banner-cont-des[data-align="right"]{
+        text-align: right;
+    }
+    .mobile-view-bannerimage[data-pos*="top"]{
+        align-items: flex-start;
+    }
+    .mobile-view-bannerimage[data-pos*="middle"]{
+        align-items: center;
+    }
+    .mobile-view-bannerimage[data-pos*="bottom"]{
+        align-items: flex-end;
+    }
+    .mobile-view-bannerimage[data-pos$="left"]{
+        justify-items: start;
+    }
+    .mobile-view-bannerimage[data-pos$="center"]{
+        justify-items: center;
+    }
+    .mobile-view-bannerimage[data-pos$="right"]{
+        justify-items: end;
+    }
+}
+{% endstyle %}
+
+<div class="custom-banner-image-div desktop-banner">
+  <div
+    class="bg-banner--div"
+    data-pos="{{ section.settings.desktop_banner_content_position }}"
+    style="background-image: url({% if section.settings.image %}{{ section.settings.image | image_url: width: 2400 }}{% else %}https://cdn.shopify.com/s/files/1/0993/4677/6359/files/Frame.svg{% endif %});"
+  >
+    <div class="custom-banner-div-container">
+      <div class="custom-banner-sect">
+        <div class="cont-all-m-div">
+          <div class="banner-cont-des" data-align="{{ section.settings.desktop_banner_content_alignment }}">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'heading' %}
+                  <h1>{{ block.settings.heading }}</h1>
+                {% when 'richtext' %}
+                  <div class="banner-desc">
+                    {{ block.settings.description }}
+                  </div>
+                {% when 'cta' %}
+                  <div class="custom-add-to-cart banner-design-cta">
+                    <a href="{{ block.settings.cta_url }}" class="js-add-to-cart" role="button" aria-label="Add to cart">
+                      <span class="btn-text">{{ block.settings.cta_text }}</span>
+                      <span>
+                        <img  width="auto" height="auto" class="after-hover-img" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_2.png" alt="">
+                        <img  width="auto" height="auto" class="before-hover" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_1.png" alt="">
+                      </span>
+                    </a>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="mobile-view-banner mobile-tablet-version">
+    <div class="mobile-view-banner-top-content">
+        <div class="banner-cont-des" data-align="{{ section.settings.mobile_banner_content_alignment }}">
+            {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'heading' %}
+                    <h1>{{block.settings.heading}}</h1>
+                {% when 'richtext' %}
+                    <div class="banner-desc">
+                        {{block.settings.description}}
+                    </div>
+            {% endcase %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="mobile-view-bannerimage"  data-pos="{{ section.settings.mobile_banner_postition }}"  style="{% if section.settings.mobile_iamge %}
+      background-image: url({{ section.settings.mobile_iamge | image_url: width: 2400  }}); {% else %} background-image: url(https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Frame.svg)
+    {% endif %}">
+        {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'cta' %}
+                <div class="custom-add-to-cart banner-design-cta">
+                    <a href="{{block.settings.cta_url}}" class="js-add-to-cart" role="button" aria-label="Add to cart">
+                        <span class="btn-text">{{block.settings.cta_text}}</span>
+                        <span><img width="auto" height="auto" class="after-hover-img" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_2.png" alt=""><img  width="auto" height="auto" class="before-hover"     src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_1.png" alt=""></span>
+                    </a>
+                </div>
+        {% endcase %}
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "class": "custom-banner",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "mobile_iamge",
+        "label": "Mobile Image"
+    },
+    {
+        "type": "header",
+        "content": "Content Allignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_banner_content_position",
+      "default": "middle-center",
+      "label": "Banner Content Position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_banner_content_alignment",
+      "default": "center",
+      "label": "Desktop Banner Allignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+        "type": "header",
+        "content": "Content Allignment for Mobile"
+    },
+    {
+      "type": "select",
+      "id": "mobile_banner_content_alignment",
+      "default": "center",
+      "label": "Mobile Banner Allignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_banner_postition",
+      "default": "middle-center",
+      "label": "Mobile Banner Content Position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Custom Banner Heading",
+      "limit": 1,
+      "settings": [
+        {
+            "type": "inline_richtext",
+            "id": "heading",
+            "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Custom Banner Description",
+      "limit": 1,
+      "settings": [
+        {
+            "type": "richtext",
+            "id": "description",
+            "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+            "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Custom Banner CTA",
+      "limit": 1,
+      "settings": [
+        {
+            "type": "url",
+            "id": "cta_url",
+            "label": "CTA URL"
+        },
+        {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom-banner"
+    }
+  ]
+}
+{% endschema %}

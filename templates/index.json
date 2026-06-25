@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "custom_banner": {
+      "type": "custom-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products"
+          }
+        },
+        "description": {
+          "type": "richtext",
+          "settings": {
+            "description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>"
+          }
+        },
+        "cta": {
+          "type": "cta",
+          "settings": {
+            "cta_text": "Shop all",
+            "cta_url": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "description",
+        "cta"
+      ],
+      "settings": {
+        "desktop_banner_content_position": "middle-center",
+        "desktop_banner_content_alignment": "center",
+        "mobile_banner_content_alignment": "center",
+        "mobile_banner_postition": "middle-center"
+      }
+    },
+    "custom_grid": {
+      "type": "custom-grid",
+      "settings": {
+        "heading": "Featured products"
+      },
+      "blocks": {}
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "custom_banner",
+    "custom_grid",
+    "featured_collection"
+  ]
+}

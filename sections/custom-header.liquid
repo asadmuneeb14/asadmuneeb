@@ -1,0 +1,154 @@
+{% style %}
+  .custom-header-m-div, .mobile-menu-container{
+    background:{{ section.settings.bg-color }};
+  }
+{% endstyle %}
+
+<div class="custom-header-m-div desktop-header">
+    <div class="header-cont">
+        <div class="header-m-row">
+            <div class="header-logo-col">
+                {% if section.settings.logo_iamge !=blank %}
+                <a href="{{ routes.root_url }}" class="site-logo">
+                    <img  width="auto" height="auto" src="{{ section.settings.logo_iamge | image_url: width: 2400 }}">
+                </a>
+                {% else %}
+                <a href="{{ routes.root_url }}" class="site-name">{{ shop.name }}</a>
+                {% endif %}
+            </div>
+            {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'announcement_richtext' %}
+                <div class="header-annc-col">
+                    <div class="header-annc-cont-cont">
+                        <p>{{ block.settings.text }}</p >
+                    </div>
+                </div>
+                {% when 'header_cta' %}
+                <div class="header-cta-col">
+                    <div class="custom-add-to-cart">
+                        <a href="{{ block.settings.link }}" class="js-add-to-cart" role="button" aria-label="Add to cart">
+                            <span class="btn-text">{{ block.settings.cta_text }}</span>
+                            <span>
+                                <img  width="auto" height="auto" class="after-hover-img" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_2.png" alt="">
+                                <img  width="auto" height="auto" class="before-hover"     src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_1.png" alt="">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            {% endcase %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<div class="mobile-menu-container">
+    <div class="header">
+        <div class="menu-toggle">
+            <img  width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Group_1000008115.svg?v=1755509884" alt="Menu" class="menu-icon">
+            <img  width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Group_1000008182.svg?v=1755509904" alt="Close" class="close-icon">
+        </div>
+        <div class="logo">{% if section.settings.logo_iamge !=blank %}
+            <a href="{{ routes.root_url }}" class="site-logo">
+                <img  width="auto" height="auto" src="{{ section.settings.logo_iamge | image_url: width: 2400 }}">
+            </a>
+            {% else %}
+            <a href="{{ routes.root_url }}" class="site-name">{{ shop.name }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="menu-content">
+    <div class="mob-menu-nner-cont">
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'announcement_richtext' %}  
+                <div class="header-annc-cont-cont">
+                    <p>{{ block.settings.text }}</p >
+                </div>
+                {% when 'header_cta' %}
+                <div class="header-cta-col">
+                <div class="custom-add-to-cart">
+                    <a href="#{{ block.settings.link }}" class="js-add-to-cart" role="button" aria-label="Add to cart">
+                        <span class="btn-text">{{ block.settings.cta_text }}</span>
+                        <span>
+                            <img  width="auto" height="auto" class="after-hover-img" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_2.png" alt="">
+                            <img  width="auto" height="auto" class="before-hover"     src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_1.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            {% endcase %}
+            {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "custom header",
+  "max_blocks": 2,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "logo_iamge",
+        "label": "Logo "
+    },
+    {
+        "type": "color",
+        "id": "bg-color",
+        "label": "Background color",
+        "default": "#F5F5F5"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement_richtext",
+      "name": "Header Announcement",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Announcement text"
+        }
+      ]
+    },
+    {
+      "type": "header_cta",
+      "name": "Custom Header CTA",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "CTA URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom_header",
+      "blocks": [
+        {
+          "type": "announcement_richtext"
+        },
+        {
+          "type": "header_cta"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

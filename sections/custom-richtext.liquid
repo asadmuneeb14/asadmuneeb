@@ -1,0 +1,155 @@
+{% style %}
+  .custom-descrption-des{
+    background:{{ section.settings.bg-color }};
+    padding:{{ section.settings.top_bottom_spaces }}px;
+  }
+  .custom-descrption-des .text-desc-div p{
+    color:{{ section.settings.text-color }};
+  }
+  .custom-descrption-des .text-desc-div[data-align="left"]{
+    margin-left: 0; margin-right: auto; text-align: left;
+  }
+  .custom-descrption-des .text-desc-div[data-align="center"]{
+    margin-left: auto; margin-right: auto; text-align: center;
+  }
+  .custom-descrption-des .text-desc-div[data-align="right"]{
+    margin-left: auto; margin-right: 0; text-align: right;
+  }
+  @media only screen and (min-width: 1024px) and (max-width: 2560px) {
+    .custom-descrption-des{
+      padding:{{ section.settings.top_bottom_spaces_laptop }}px;
+    }
+    .text-desc-div p { 
+      line-height: 13.42px;
+      font-size: 16px;
+    }
+  }
+  @media only screen and (min-width: 320px) and (max-width: 1023px) {
+    .custom-descrption-des{
+      padding:{{ section.settings.top_bottom_spaces_mobile }}px;
+    }
+    .text-desc-div p {
+      line-height: 13.42px;
+      font-size: 14px;
+    }
+  }
+{% endstyle %}
+
+<div class="custom-descrption-des">
+    <div class="text-desc-div"  data-align="{{ section.settings.desktop_banner_content_alignment }}">
+        {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'richtext' %}
+            {{ block.settings.description }}
+        {% endcase %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Richtext",
+  "class": "custom-richtext",
+  "settings": [
+    {
+        "type": "color",
+        "id": "bg-color",
+        "label": "Background color",
+        "default": "#FFFFFF"
+    }, 
+    {
+        "type": "color",
+        "id": "text-color",
+        "label": "Text color",
+        "default": "#FFFFFF"
+    }, 
+    {
+        "type": "header",
+        "content": "Content Allignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_banner_content_alignment",
+      "default": "center",
+      "label": "Desktop Banner Allignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    
+    {
+        "type": "header",
+        "content": "Spaces"
+    },
+    {
+      "type": "range",
+      "id": "top_bottom_spaces",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top & Bottom Spaces",
+      "default": 0
+    }, 
+    {
+        "type": "header",
+        "content": "Spaces for Laptop"
+    },
+    {
+      "type": "range",
+      "id": "top_bottom_spaces_laptop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top & Bottom Spaces",
+      "default": 0
+    },
+    {
+        "type": "header",
+        "content": "Spaces for Mobile"
+    },
+    {
+      "type": "range",
+      "id": "top_bottom_spaces_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top & Bottom Spaces",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Custom Description",
+      "limit": 1,
+      "settings": [
+        {
+            "type": "richtext",
+            "id": "description",
+            "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+            "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom-richtext"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,34 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "custom_header": {
+      "type": "custom-header",
+      "blocks": {
+        "announcement": {
+          "type": "announcement_richtext",
+          "settings": {
+            "text": "Welcome to our store"
+          }
+        },
+        "cta": {
+          "type": "header_cta",
+          "settings": {
+            "cta_text": "Shop now",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "announcement",
+        "cta"
+      ],
+      "settings": {
+        "bg-color": "#F5F5F5"
+      }
+    }
+  },
+  "order": [
+    "custom_header"
+  ]
+}

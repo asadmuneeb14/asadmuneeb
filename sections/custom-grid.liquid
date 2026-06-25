@@ -1,0 +1,167 @@
+
+<custom-product-grid data-money-format="{{ shop.money_format | escape }}"  data-currency="{{ shop.currency | escape }}">
+    <div class="grid-ct-sect">
+        <div class="grid-top-row">
+            {% if section.settings.heading != blank %}
+                <div class="grid--top-content">
+                    <h2>{{section.settings.heading}}</h2>
+                </div>
+            {% endif %}
+            <div class="grid-ct-row">
+                {%- for block in section.blocks -%}
+                {%- assign product = all_products[block.settings.custom_product_select] -%}
+                {%- assign img_src = block.settings.iamge | image_url: width: 2400-%}
+                    <div class="grid-ct-col" {{ block.shopify_attributes }}>
+                        <div class="grid--inner-cont">
+                            <script type="application/json" class="product-json">
+                                {
+                                    "options": {{ product.options_with_values | json }},
+                                    "variants": {{ product.variants | json }}
+                                }
+                            </script>
+                            <div class="hotspot-div">
+                                <img  width="auto" height="auto" class="hotspot-img" src="{{ img_src | default: product.featured_image | image_url: width: 2400 }}" alt="{{ product.title | default: 'Hotspot Image' | escape }}" loading="lazy">
+                                <ul class="hotspot-ul">
+                                    <li class="cd-single-point" style="top: {{ block.settings.hotspot_top_botttom }}%; left: {{ block.settings.hotspot_left_right }}%;">
+                                        <a class="cd-img-replace" href="#0"></a>
+                                        <div class="cd-more-info cd-right">
+                                            <div class="hotspot-close-div">
+                                                <a href="#0" class="cd-close-info cd-img-replace"><img  width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Group_1000008134.png"></a>
+                                            </div>
+                                            <div class="hotspot-prod-m-div">
+                                                <div class="hotspot-prod-det-m-div">
+                                                    <div class="left-col">
+                                                        <div class="hotspot-prd-img">
+                                                            {{ product.featured_image | image_url: width: 600 | image_tag: alt: product.title, loading: 'lazy' }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-col">
+                                                        <div class="prod-tit-pric-desc">
+                                                            <h3>{{ product.title }}</h3>
+                                                            <span class="price-hotspot">{{ product.selected_or_first_available_variant.price | money }}</span>
+                                                            <div class="short-desc">
+                                                                <p>{{ product.description | strip_html | truncatewords: 13, '…' }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {%- assign color_opt = product.options_with_values | where: "name", "Color" | first -%}
+                                            {%- if color_opt and color_opt.values.size > 0 -%}
+                                            <div class="custom-varient">
+                                                <label>Color</label>
+                                                <div class="vareint-m-div">
+                                                {%- for val in color_opt.values -%}
+                                                <div class="varient--cont" data-color="{{ val | escape }}" >
+                                                    <div class="varient-border" data-color="{{ val | escape }}"></div>
+                                                    <div class="varient-name"><span>{{ val }}</span></div>
+                                                </div>
+                                                {%- endfor -%}
+                                                </div>
+                                            </div>
+                                            {%- endif -%}
+                                            {%- assign size_opt = nil -%}
+                                            {%- for opt in product.options_with_values -%}
+                                            {%- assign opt_name_down = opt.name | strip | downcase -%}
+                                            {%- if opt_name_down == 'size' -%}
+                                                {%- assign size_opt = opt -%}
+                                                {%- break -%}
+                                            {%- endif -%}
+                                            {%- endfor -%}
+                                            {%- if size_opt and size_opt.values.size > 0 -%}
+                                            <div class="size-div">
+                                            <label>Size</label>
+                                            <div class="custom-select-wrapper">
+                                                <select id="size" class="custom-select">
+                                                <option value="" selected disabled>Choose your size</option>
+                                                {%- for s in size_opt.values -%}
+                                                    <option value="{{ s | escape }}">{{ s }}</option>
+                                                {%- endfor -%}
+                                                </select>
+                                            </div>
+                                            </div>
+                                            {%- endif -%}
+                                            <div class="custom-add-to-cart">
+                                                <a href="#" class="js-add-to-cart" role="button" aria-label="Add to cart">
+                                                    <span class="btn-text">Add to cart</span>
+                                                    <span>
+                                                        <img  width="auto" height="auto" class="after-hover-img" src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_2.png" alt="">
+                                                        <img  width="auto" height="auto" class="before-hover"     src="https://cdn.shopify.com/s/files/1/0949/9784/0170/files/Line_15_1.png" alt="">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</custom-product-grid>
+
+
+
+{% schema %}
+{
+  "name": "Custom Grid",
+  "class": "custom-grid",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Custom Product Grid",
+      "limit": 9,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "iamge",
+          "label": "Product Hotspot Image"
+        },
+        {
+          "type": "product",
+          "id": "custom_product_select",
+          "label": "Product"
+        },
+        {
+            "type": "header",
+            "content": "Hotspot Allignment"
+        },
+        {
+            "type": "range",
+            "id": "hotspot_top_botttom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Top & Bottom",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "hotspot_left_right",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Left & Right",
+            "default": 0
+        }
+      ]
+    },
+  ],
+  "presets": [
+    {
+      "name": "custom-grid"
+    }
+  ]
+}
+{% endschema %}

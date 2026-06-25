@@ -44,10 +44,46 @@
         "mobile_banner_postition": "middle-center"
       }
     },
+    "custom_richtext_xqrgeG": {
+      "type": "custom-richtext",
+      "blocks": {
+        "richtext_GRCJyR": {
+          "type": "richtext",
+          "settings": {
+            "description": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_GRCJyR"
+      ],
+      "name": "custom-richtext",
+      "settings": {
+        "bg-color": "#F5F5F5",
+        "text-color": "#000000",
+        "desktop_banner_content_alignment": "center",
+        "top_bottom_spaces": 26,
+        "top_bottom_spaces_laptop": 10,
+        "top_bottom_spaces_mobile": 10
+      }
+    },
     "custom_grid": {
       "type": "custom-grid",
+      "blocks": {
+        "product_ncEGt3": {
+          "type": "product",
+          "settings": {
+            "custom_product_select": "",
+            "hotspot_top_botttom": 0,
+            "hotspot_left_right": 0
+          }
+        }
+      },
+      "block_order": [
+        "product_ncEGt3"
+      ],
       "settings": {
-        "heading": "Featured products"
+        "heading": "Tisso vison in the wild"
       }
     },
     "featured_collection": {
@@ -77,29 +113,6 @@
         "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
-      }
-    },
-    "custom_richtext_xqrgeG": {
-      "type": "custom-richtext",
-      "blocks": {
-        "richtext_GRCJyR": {
-          "type": "richtext",
-          "settings": {
-            "description": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>"
-          }
-        }
-      },
-      "block_order": [
-        "richtext_GRCJyR"
-      ],
-      "name": "custom-richtext",
-      "settings": {
-        "bg-color": "#F5F5F5",
-        "text-color": "#000000",
-        "desktop_banner_content_alignment": "center",
-        "top_bottom_spaces": 26,
-        "top_bottom_spaces_laptop": 10,
-        "top_bottom_spaces_mobile": 10
       }
     }
   },

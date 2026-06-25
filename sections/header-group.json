@@ -17,14 +17,14 @@
         "announcement": {
           "type": "announcement_richtext",
           "settings": {
-            "text": "Welcome to our store"
+            "text": "Find the ideal gift for your loved ones."
           }
         },
         "cta": {
           "type": "header_cta",
           "settings": {
-            "cta_text": "Shop now",
-            "link": "shopify://collections/all"
+            "cta_text": "choose gift",
+            "link": "shopify://collections"
           }
         }
       },

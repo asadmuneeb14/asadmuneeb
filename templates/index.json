@@ -96,12 +96,22 @@
             "hotspot_top_botttom": 18,
             "hotspot_left_right": 55
           }
+        },
+        "product_pNXG8i": {
+          "type": "product",
+          "settings": {
+            "iamge": "shopify://shop_images/leather-jacket-and-tea_925x_2490cde1-7e61-4151-9a65-de8a763bc701.jpg",
+            "custom_product_select": "classic-leather-jacket",
+            "hotspot_top_botttom": 30,
+            "hotspot_left_right": 0
+          }
         }
       },
       "block_order": [
         "product_ncEGt3",
         "product_6DA6Hr",
-        "product_KkYLNg"
+        "product_KkYLNg",
+        "product_pNXG8i"
       ],
       "settings": {
         "heading": "Tisso vison in the wild"

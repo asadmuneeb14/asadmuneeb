@@ -1,43 +1,46 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "custom_banner": {
+      "type": "custom-banner",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "heading": "Browse our latest products"
           }
         },
-        "button": {
-          "type": "buttons",
+        "description": {
+          "type": "richtext",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>"
+          }
+        },
+        "cta": {
+          "type": "cta",
+          "settings": {
+            "cta_text": "Shop all",
+            "cta_url": "shopify://collections/all"
           }
         }
       },
       "block_order": [
         "heading",
-        "button"
+        "description",
+        "cta"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "desktop_banner_content_position": "middle-center",
+        "desktop_banner_content_alignment": "center",
+        "mobile_banner_content_alignment": "center",
+        "mobile_banner_postition": "middle-center"
       }
+    },
+    "custom_grid": {
+      "type": "custom-grid",
+      "settings": {
+        "heading": "Featured products"
+      },
+      "blocks": {}
     },
     "featured_collection": {
       "type": "featured-collection",
@@ -69,7 +72,8 @@
     }
   },
   "order": [
-    "image_banner",
+    "custom_banner",
+    "custom_grid",
     "featured_collection"
   ]
 }

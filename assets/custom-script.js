@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 	const menuToggle = document.querySelector('.menu-toggle');
 	const menuContent = document.querySelector('.menu-content');
-	
+
+	if (!menuToggle || !menuContent) return;
+
 	menuToggle.addEventListener('click', function() {
 		this.classList.toggle('active');
 		menuContent.classList.toggle('active');
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-	document.querySelectorAll('.cd-single-point > a').forEach(function(link) {
+	document.querySelectorAll('.cd-single-point > a.cd-img-replace:not(.cd-close-info)').forEach(function(link) {
 		link.addEventListener('click', function(e) {
 			e.preventDefault();
 			var selectedPoint = this.parentNode;
@@ -75,6 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
     connectedCallback() {
       if (this._ready) return;
       this._ready = true;
+      this.moneyFormat = this.dataset.moneyFormat;
+      this.currency = this.dataset.currency || 'USD';
       this.qsa(".vareint-m-div").forEach(div => {
         if (!div.querySelector(".varient--cont.active")) {
           const first = div.querySelector(".varient--cont");
@@ -184,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const variant = this.pickVariant(data, this.getSelection(card, data));
       if (!variant) return;
       card.dataset.variantId = variant.id;
-      const priceEl = card.querySelector("[data-price]");
+      const priceEl = card.querySelector("[data-price], .price-hotspot");
       if (priceEl) priceEl.textContent = this.formatMoney(variant.price);
       const img = card.querySelector(".hotspot-prd-img img");
       if (img && variant.featured_image?.src) {
@@ -216,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         this.syncVariantUI(card);
 
         const variantId = Number(card?.dataset?.variantId || 0);
-        if (!variantId) return this.flash(atc, "Select options", true);
+        if (!variantId) return;
 
         let qty = 1;
         const qtyEl = card.querySelector('input[name="quantity"], .js-qty');

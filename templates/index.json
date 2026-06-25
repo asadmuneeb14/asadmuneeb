@@ -38,9 +38,9 @@
         "cta"
       ],
       "settings": {
-        "desktop_banner_content_position": "middle-center",
-        "desktop_banner_content_alignment": "center",
-        "mobile_banner_content_alignment": "center",
+        "desktop_banner_content_position": "bottom-left",
+        "desktop_banner_content_alignment": "left",
+        "mobile_banner_content_alignment": "left",
         "mobile_banner_postition": "middle-center"
       }
     },

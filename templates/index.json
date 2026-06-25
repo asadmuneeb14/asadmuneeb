@@ -111,8 +111,8 @@
           "settings": {
             "iamge": "shopify://shop_images/casual-fashion-woman_925x_56b56608-f207-45c1-b677-bb5aa26c1c7a.jpg",
             "custom_product_select": "classic-varsity-top",
-            "hotspot_top_botttom": 0,
-            "hotspot_left_right": 0
+            "hotspot_top_botttom": 23,
+            "hotspot_left_right": 47
           }
         },
         "product_LDk3R8": {

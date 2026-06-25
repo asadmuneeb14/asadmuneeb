@@ -91,9 +91,9 @@
         "product_KkYLNg": {
           "type": "product",
           "settings": {
-            "iamge": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
-            "custom_product_select": "black-leather-bag",
-            "hotspot_top_botttom": 50,
+            "iamge": "shopify://shop_images/red-plaid-shirt_925x_70e9e5a8-8fc5-4d60-9a9a-cc2e0dd57cc9.jpg",
+            "custom_product_select": "chequered-red-shirt",
+            "hotspot_top_botttom": 18,
             "hotspot_left_right": 55
           }
         }

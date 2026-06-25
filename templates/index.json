@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_banner": {
@@ -6,20 +15,20 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products"
+            "heading": "The Gift Guide"
           }
         },
         "description": {
           "type": "richtext",
           "settings": {
-            "description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>"
+            "description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>"
           }
         },
         "cta": {
           "type": "cta",
           "settings": {
-            "cta_text": "Shop all",
-            "cta_url": "shopify://collections/all"
+            "cta_url": "shopify://collections/all",
+            "cta_text": "Shop Now"
           }
         }
       },
@@ -39,26 +48,25 @@
       "type": "custom-grid",
       "settings": {
         "heading": "Featured products"
-      },
-      "blocks": {}
+      }
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -66,6 +74,7 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
       }

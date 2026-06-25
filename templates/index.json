@@ -102,8 +102,8 @@
           "settings": {
             "iamge": "shopify://shop_images/leather-jacket-and-tea_925x_2490cde1-7e61-4151-9a65-de8a763bc701.jpg",
             "custom_product_select": "classic-leather-jacket",
-            "hotspot_top_botttom": 30,
-            "hotspot_left_right": 0
+            "hotspot_top_botttom": 16,
+            "hotspot_left_right": 62
           }
         },
         "product_8RrEQq": {
